@@ -1,17 +1,14 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
+import React from "react";
+import ReactDOM from "react-dom/client";
 import "./index.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Login from "./components/login";
-import Home from "./components/home";
+import App from "./App";
+import { WorkoutsContextProvider } from "./context/WorkoutsContext";
 
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/home" element={<Home />} />
-      </Routes>
-    </BrowserRouter>
-  </StrictMode>
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <React.StrictMode>
+    <WorkoutsContextProvider>
+      <App />
+    </WorkoutsContextProvider>
+  </React.StrictMode>
 );
